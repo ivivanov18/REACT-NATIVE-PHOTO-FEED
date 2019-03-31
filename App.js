@@ -8,6 +8,11 @@
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+
+import Feed from "./app/screens/Feed";
+import Profile from "./app/screens/Profile";
+import Upload from "./app/screens/Upload";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -16,14 +21,19 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
+const MainStack = createBottomTabNavigator({
+  Feed: { screen: Feed },
+  Upload: { screen: Upload },
+  Profile: { screen: Profile }
+});
+
+const AppContainer = createAppContainer(MainStack);
+
 type Props = {};
+
 export default class App extends Component<Props> {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Pffuiih!!!</Text>
-      </View>
-    );
+    return <AppContainer />;
   }
 }
 
