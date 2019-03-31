@@ -8,7 +8,7 @@ class Upload extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Upload</Text>
       </View>
     );
